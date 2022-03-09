@@ -26,7 +26,7 @@ const ioConnection = new Server(httpServer, {
 });
 mySockets(ioConnection);
 
-const urlMongo = 'mongodb://127.0.0.1:27017/chat-database';
+const urlMongo = process.env.MONGODB_URI;
 mongoose.connect(urlMongo, { useNewUrlParser: true }).then(db => {
     console.log('db is conected');
 }).catch(err => {
